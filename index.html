@@ -35,469 +35,106 @@
 }
 
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); background: var(--bg); color: var(--ink); }
 
-body {
-  font-family: var(--sans);
-  background: var(--bg);
-  color: var(--ink);
-}
-
-/* ── Nav ─────────────────────────────────────────────────── */
 .nav {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 48px;
-  height: 56px;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 48px; height: 56px;
+  background: var(--bg); border-bottom: 1px solid var(--border);
 }
-.nav-logo {
-  font-family: var(--serif);
-  font-size: 19px;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-  text-decoration: none;
-}
+.nav-logo { font-family: var(--serif); font-size: 19px; color: var(--ink); letter-spacing: -0.02em; text-decoration: none; }
 .nav-links { display: flex; gap: 28px; }
-.nav-link {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--ink3);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: color 0.15s;
-}
+.nav-link { font-family: var(--mono); font-size: 10px; color: var(--ink3); letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 0.15s; }
 .nav-link:hover { color: var(--ink); }
 
-/* ── Sections ────────────────────────────────────────────── */
 .page { padding-top: 56px; }
+.section { max-width: 1080px; margin: 0 auto; padding: 120px 48px; }
+.section-wide { padding: 120px 48px; background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.divider { border: none; border-top: 1px solid var(--border); max-width: 1080px; margin: 0 auto; }
 
-.section {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 120px 48px;
-}
-.section-wide {
-  padding: 120px 48px;
-  background: var(--bg);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.section-dark {
-  padding: 120px 48px;
-  background: var(--ink);
-}
-
-.divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  max-width: 1080px;
-  margin: 0 auto;
-}
-
-/* ── Typography ──────────────────────────────────────────── */
-.eyebrow {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--ink3);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-}
-.display {
-  font-family: var(--serif);
-  font-size: clamp(48px, 7vw, 84px);
-  line-height: 1.02;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  margin-bottom: 28px;
-}
+.eyebrow { font-family: var(--mono); font-size: 10px; color: var(--ink3); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px; }
+.display { font-family: var(--serif); font-size: clamp(48px, 7vw, 84px); line-height: 1.02; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 28px; }
 .display em { font-style: italic; }
-.headline {
-  font-family: var(--serif);
-  font-size: clamp(36px, 4.5vw, 56px);
-  line-height: 1.07;
-  letter-spacing: -0.025em;
-  color: var(--ink);
-  margin-bottom: 24px;
-}
+.headline { font-family: var(--serif); font-size: clamp(36px, 4.5vw, 56px); line-height: 1.07; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 24px; }
 .headline em { font-style: italic; }
-.body {
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--ink2);
-  line-height: 1.8;
-  font-weight: 400;
-  margin-bottom: 14px;
-  letter-spacing: 0.01em;
-}
+.body { font-family: var(--mono); font-size: 13px; color: var(--ink2); line-height: 1.8; font-weight: 400; margin-bottom: 14px; letter-spacing: 0.01em; }
 .body strong { color: var(--ink); font-weight: 500; }
 .body:last-child { margin-bottom: 0; }
 
-/* ── Hero ────────────────────────────────────────────────── */
-.hero {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 140px 48px 100px;
-}
-.hero-inner {
-  max-width: 720px;
-}
-.hero-sub {
-  max-width: 420px;
-}
-.hero-arrow {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink3);
-  letter-spacing: 0.08em;
-  margin-top: 32px;
-}
+.hero { max-width: 1080px; margin: 0 auto; padding: 140px 48px 100px; }
+.hero-inner { max-width: 720px; }
+.hero-sub { max-width: 420px; }
+.hero-arrow { font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: 0.08em; margin-top: 32px; }
 
-/* ── Canvas section ──────────────────────────────────────── */
-.canvas-section {
-  padding: 0 48px 120px;
-  max-width: 1080px;
-  margin: 0 auto;
-}
-.canvas-intro {
-  max-width: 580px;
-  margin-bottom: 48px;
-}
+.canvas-section { padding: 0 48px 120px; max-width: 1080px; margin: 0 auto; }
+.canvas-intro { max-width: 580px; margin-bottom: 48px; }
 
-/* Canvas widget */
-.canvas-widget {
-  border: 1.5px solid var(--ink);
-  border-radius: 18px;
-  padding: 20px;
-  background: var(--white);
-}
+.canvas-widget { border: 1.5px solid var(--ink); border-radius: 18px; padding: 20px; background: var(--white); }
 .cw-header { margin-bottom: 12px; }
-.cw-title {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 3px;
-}
-.cw-sub {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--ink3);
-  letter-spacing: 0.06em;
-  font-style: italic;
-}
-.cw-legend {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
-}
-.cw-leg {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-family: var(--mono);
-  font-size: 9px;
-  color: var(--ink3);
-  letter-spacing: 0.06em;
-}
+.cw-title { font-family: var(--mono); font-size: 11px; color: var(--ink); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 3px; }
+.cw-sub { font-family: var(--mono); font-size: 10px; color: var(--ink3); letter-spacing: 0.06em; font-style: italic; }
+.cw-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 12px; }
+.cw-leg { display: flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 9px; color: var(--ink3); letter-spacing: 0.06em; }
 .cw-pip { width: 8px; height: 8px; border-radius: 50%; }
-.cw-progress {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-.cw-prog-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--ink3);
-  letter-spacing: 0.06em;
-  white-space: nowrap;
-}
-.cw-prog-track {
-  flex: 1; height: 3px;
-  background: var(--border);
-  border-radius: 3px;
-  overflow: hidden;
-}
-.cw-prog-fill {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
-}
-.cw-prog-pct {
-  font-family: var(--serif);
-  font-size: 20px;
-  letter-spacing: -0.02em;
-  min-width: 44px;
-  text-align: right;
-  transition: color 0.3s;
-}
-.cw-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 5px;
-}
-.cw-anxiety {
-  grid-column: 1 / -1;
-  background: var(--anxiety);
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 12px 14px;
-  overflow: hidden;
-  transition: height 0.5s cubic-bezier(0.4,0,0.2,1);
-}
-.cw-anx-eye {
-  font-family: var(--mono);
-  font-size: 9px;
-  color: #6A6458;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.cw-anx-txt {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 14px;
-  color: #9A9488;
-  line-height: 1.3;
-}
-.cw-tile {
-  border: 1.5px solid;
-  border-radius: 12px;
-  padding: 9px 11px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: transparent;
-  overflow: hidden;
-  transition: height 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.3s;
-  position: relative;
-}
-.cw-tile-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.cw-tile-piplabel {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
+.cw-progress { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.cw-prog-label { font-family: var(--mono); font-size: 10px; color: var(--ink3); letter-spacing: 0.06em; white-space: nowrap; }
+.cw-prog-track { flex: 1; height: 3px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.cw-prog-fill { height: 100%; border-radius: 3px; transition: width 0.5s cubic-bezier(0.4,0,0.2,1); }
+.cw-prog-pct { font-family: var(--serif); font-size: 20px; letter-spacing: -0.02em; min-width: 44px; text-align: right; transition: color 0.3s; }
+.cw-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 5px; }
+.cw-anxiety { grid-column: 1 / -1; background: var(--anxiety); border-radius: 12px; display: flex; flex-direction: column; justify-content: flex-end; padding: 12px 14px; overflow: hidden; transition: height 0.5s cubic-bezier(0.4,0,0.2,1); }
+.cw-anx-eye { font-family: var(--mono); font-size: 9px; color: #6A6458; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+.cw-anx-txt { font-family: var(--serif); font-style: italic; font-size: 14px; color: #9A9488; line-height: 1.3; }
+.cw-tile { border: 1.5px solid; border-radius: 12px; padding: 9px 11px; display: flex; flex-direction: column; justify-content: space-between; background: transparent; overflow: hidden; transition: height 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.3s; position: relative; }
+.cw-tile-top { display: flex; align-items: center; justify-content: space-between; }
+.cw-tile-piplabel { display: flex; align-items: center; gap: 5px; }
 .cw-tile-pip { width: 8px; height: 8px; border-radius: 50%; }
-.cw-tile-mode {
-  font-family: var(--mono);
-  font-size: 7px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.8;
-}
-.cw-tile-name {
-  font-family: var(--serif);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+.cw-tile-mode { font-family: var(--mono); font-size: 7px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; }
+.cw-tile-name { font-family: var(--serif); line-height: 1.1; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .cw-dropdown-wrap { position: relative; }
-.cw-dropdown-btn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 11px;
-  padding: 2px 3px;
-  opacity: 0.5;
-  transition: opacity 0.15s;
-  line-height: 1;
-}
+.cw-dropdown-btn { background: transparent; border: none; cursor: pointer; font-size: 11px; padding: 2px 3px; opacity: 0.5; transition: opacity 0.15s; line-height: 1; }
 .cw-dropdown-btn:hover { opacity: 1; }
-.cw-dropdown {
-  position: absolute;
-  top: calc(100% + 4px);
-  right: 0;
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: 11px;
-  overflow: hidden;
-  z-index: 50;
-  min-width: 130px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-.cw-dropdown-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 11px;
-  cursor: pointer;
-  font-size: 11px;
-  font-family: var(--sans);
-  color: var(--ink2);
-  transition: background 0.1s;
-  border-bottom: 1px solid var(--border);
-}
+.cw-dropdown { position: absolute; top: calc(100% + 4px); right: 0; background: var(--white); border: 1.5px solid var(--border); border-radius: 11px; overflow: hidden; z-index: 50; min-width: 130px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+.cw-dropdown-item { display: flex; align-items: center; gap: 8px; padding: 9px 11px; cursor: pointer; font-size: 11px; font-family: var(--sans); color: var(--ink2); transition: background 0.1s; border-bottom: 1px solid var(--border); }
 .cw-dropdown-item:last-child { border-bottom: none; }
 .cw-dropdown-item:hover { background: var(--bg); }
 .cw-dropdown-active { background: var(--bg); }
 .cw-dropdown-pip { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
 .cw-dropdown-check { margin-left: auto; font-size: 9px; color: var(--ink3); }
 
-/* ── Two col ─────────────────────────────────────────────── */
-.two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-.two-col-wide {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.two-col-wide { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
 
-/* ── Needs grid ──────────────────────────────────────────── */
-.needs-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
-  margin-top: 32px;
-}
-.need-card {
-  border: 1.5px solid var(--ink);
-  border-radius: 12px;
-  padding: 20px 16px 16px;
-  min-height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: var(--white);
-  transition: background 0.15s;
-  cursor: default;
-}
+.needs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 32px; }
+.need-card { border: 1.5px solid var(--ink); border-radius: 12px; padding: 20px 16px 16px; min-height: 80px; display: flex; flex-direction: column; justify-content: flex-end; background: var(--white); transition: background 0.15s; cursor: default; }
 .need-card:hover { background: var(--bg3); }
-.need-card-name {
-  font-family: var(--serif);
-  font-size: 17px;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-}
+.need-card-name { font-family: var(--serif); font-size: 17px; color: var(--ink); letter-spacing: -0.01em; }
 
-/* ── Modes list ──────────────────────────────────────────── */
 .modes-list { display: flex; flex-direction: column; }
-.mode-item {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
-}
+.mode-item { padding: 20px 0; border-bottom: 1px solid var(--border); }
 .mode-item:first-child { border-top: 1px solid var(--border); }
-.mode-name {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+.mode-name { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
 .mode-pip { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.mode-desc {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--ink2);
-  line-height: 1.75;
-  letter-spacing: 0.01em;
-}
+.mode-desc { font-family: var(--mono); font-size: 12px; color: var(--ink2); line-height: 1.75; letter-spacing: 0.01em; }
 .mode-desc em { font-style: italic; color: var(--ink); }
 
-/* ── Steps ───────────────────────────────────────────────── */
-.steps-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  border-top: 1px solid var(--border);
-  margin-top: 64px;
-}
-.step {
-  display: grid;
-  grid-template-columns: 90px 1fr;
-  padding: 48px 0;
-  border-bottom: 1px solid var(--border);
-}
-.step:nth-child(odd)  { padding-right: 52px; border-right: 1px solid var(--border); }
+.steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--border); margin-top: 64px; }
+.step { display: grid; grid-template-columns: 90px 1fr; padding: 48px 0; border-bottom: 1px solid var(--border); }
+.step:nth-child(odd) { padding-right: 52px; border-right: 1px solid var(--border); }
 .step:nth-child(even) { padding-left: 52px; }
-.step-num {
-  font-family: var(--serif);
-  font-size: clamp(48px, 5vw, 68px);
-  color: var(--border);
-  line-height: 1;
-  letter-spacing: -0.03em;
-}
-.step-title {
-  font-family: var(--serif);
-  font-size: 22px;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
-.step-body {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink2);
-  line-height: 1.8;
-  letter-spacing: 0.01em;
-}
+.step-num { font-family: var(--serif); font-size: clamp(48px, 5vw, 68px); color: var(--border); line-height: 1; letter-spacing: -0.03em; }
+.step-title { font-family: var(--serif); font-size: 22px; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 10px; line-height: 1.2; }
+.step-body { font-family: var(--mono); font-size: 11px; color: var(--ink2); line-height: 1.8; letter-spacing: 0.01em; }
 
-/* ── CTA ─────────────────────────────────────────────────── */
-.cta {
-  text-align: center;
-  max-width: 560px;
-  margin: 0 auto;
-  padding: 140px 48px;
-}
+.cta { text-align: center; max-width: 560px; margin: 0 auto; padding: 140px 48px; }
 .cta .headline { color: var(--ink); }
-.cta-body {
-  font-size: 15px;
-  color: var(--ink2);
-  line-height: 1.7;
-  font-weight: 300;
-  margin-bottom: 36px;
-}
-.cta-btn {
-  display: inline-block;
-  background: var(--ink);
-  color: #F5F2EC;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 15px 32px;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: opacity 0.15s;
-}
+.cta-body { font-size: 15px; color: var(--ink2); line-height: 1.7; font-weight: 300; margin-bottom: 36px; }
+.cta-btn { display: inline-block; background: var(--ink); color: #F5F2EC; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 32px; border-radius: 10px; text-decoration: none; transition: opacity 0.15s; }
 .cta-btn:hover { opacity: 0.85; }
 
-/* ── Footer ──────────────────────────────────────────────── */
-.footer {
-  border-top: 1px solid var(--border);
-  padding: 28px 48px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1080px;
-  margin: 0 auto;
-}
+.footer { border-top: 1px solid var(--border); padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; max-width: 1080px; margin: 0 auto; }
 .footer-logo { font-family: var(--serif); font-size: 16px; color: var(--ink); }
 .footer-copy { font-family: var(--mono); font-size: 10px; color: var(--ink3); letter-spacing: 0.06em; }
 
@@ -515,10 +152,8 @@ body {
 </style>
 </head>
 <body>
-
 <div class="page">
 
-<!-- Nav -->
 <nav class="nav">
   <a class="nav-logo" href="#">maslow.</a>
   <div class="nav-links">
@@ -529,28 +164,25 @@ body {
   </div>
 </nav>
 
-<!-- Hero -->
 <div class="hero">
   <div class="hero-inner">
     <div class="display">anxiety isn't who you are.<br>it's who you <em>aren't.</em></div>
     <div class="hero-sub">
       <p class="body">Anxiety fills the space of your unmet needs. The louder it gets, the more essential parts of yourself are being ignored.</p>
-      <p class="body">Don't manage anxiety. Focus on meeting your needs.</p>
+      <p class="body">Don't try to manage anxiety. Focus on meeting your needs.</p>
       <p class="body"><strong>Maslow is your partner.</strong></p>
     </div>
     <div class="hero-arrow">see how it works ↓</div>
   </div>
 </div>
 
-<!-- Canvas section -->
 <div class="canvas-section">
   <div class="canvas-intro">
     <div class="eyebrow">Your canvas</div>
     <div class="headline">meet your needs.<br><em>become more of yourself.</em></div>
-    <p class="body">Maslow helps you identify your needs, understand how to meet them in a way that works for your body and mind, and track how you feel through different seasons of life — so you always know what to prioritize, and what to let go.</p>
-      <p class="body">Tap ▾ on any need to change its mode. <strong>Watch the canvas respond.</strong></p>
+    <p class="body">Maslow is a simple framework that helps identify the needs that matter to you and understand how to meet them in a way that works for you. It's designed like a canvas intentionally. As your needs take up more room, there's less room for anxiety to creep in.</p>
+    <p class="body">Tap ▾ on any "need" to change its "mode." Watch the canvas respond.</p>
   </div>
-
   <div class="canvas-widget">
     <div class="cw-header">
       <div class="cw-title">your maslow</div>
@@ -574,7 +206,6 @@ body {
 
 <hr class="divider">
 
-<!-- Needs section -->
 <div class="section" id="needs">
   <div class="two-col-wide">
     <div>
@@ -596,24 +227,20 @@ body {
       </div>
     </div>
     <div style="padding-top:64px">
-      <p class="body">These aren't aspirational goals. They're the baseline of a functioning human life. When they're consistently met, you have energy, clarity, and direction.</p>
-      <p class="body">Needs aren't aspirational goals. They have no particular order. They are not even the things that give your life meaning.</p>
-      <p class="body">They are the conditions for it. Meet them consistently, and you have the energy, clarity, and presence to actually metabolize meaning — to let it land rather than watch it pass through.</p>
+      <p class="body">Needs aren't aspirational goals. They have no particular order. They are not even the things that give your life meaning. They create the conditions for meaning and experience. Like a canvas being prepped for paint, meeting your needs helps you bring the best version of yourself to each moment. When you meet the needs that matter to you, you create new energy rather than burn it fighting against anxiety.</p>
     </div>
   </div>
 </div>
 
 <hr class="divider">
 
-<!-- Modes section -->
 <div class="section" id="modes">
   <div class="two-col">
     <div>
       <div class="eyebrow">The modes</div>
       <div class="headline">know how <em>you</em> need it</div>
-      <p class="body">What's often missing isn't meeting our needs — it's meeting them in a way that our unique bodies and minds can actually internalize.</p>
-      <p class="body">For example, you need to eat. But what you eat, and the circumstances in which you eat, determine whether your body truly feels fed.</p>
-      <p class="body"><strong>There are 4 modes in which we meet our needs.</strong></p>
+      <p class="body">What's often missing from meeting our needs, is meeting them in a way that our unique bodies and minds internalize it. For example, you need to eat, but what you eat, the circumstances in which you eat, and the nutrition you get from eating determine if your body truly feels fed.</p>
+      <p class="body">Modes tailor needs to each person, and can change over time and through different seasons of life.</p>
     </div>
     <div>
       <div class="modes-list">
@@ -638,13 +265,11 @@ body {
   </div>
 </div>
 
-<!-- How it works -->
 <div class="section-wide" id="explained">
   <div style="max-width:1080px;margin:0 auto">
     <div class="eyebrow">How it works</div>
     <div class="headline" style="max-width:560px">your maslow,<br>in four steps</div>
     <p class="body" style="max-width:480px;margin-bottom:0">It takes about five minutes to set up. Then it runs in the background of your life.</p>
-
     <div class="steps-grid">
       <div class="step">
         <div class="step-num">01</div>
@@ -675,19 +300,16 @@ body {
         </div>
       </div>
     </div>
-
-    <p class="body" style="max-width:520px;margin-top:64px;padding-top:48px;border-top:1px solid var(--border);font-size:15px;color:var(--ink)">Over time, your canvas gets richer. The blank space shrinks. <em style="font-family:var(--serif);font-style:italic">The connection between what you do and how you feel becomes impossible to ignore.</em></p>
+    <p class="body" style="max-width:520px;margin-top:64px;padding-top:48px;border-top:1px solid var(--border);font-size:15px;color:var(--ink)">Over time, your canvas gets richer and the available space for anxiety shrinks.</p>
   </div>
 </div>
 
-<!-- CTA -->
 <div class="cta">
   <div class="headline">Get started.</div>
   <p class="cta-body">No app store. No subscription. Just a framework for living with more intention — and less anxiety.</p>
-  <a class="cta-btn" href="https://app.mymaslow.app/onboarding">Create your maslow →</a>
+  <a class="cta-btn" href="https://app.mymaslow.com/onboarding">Create your maslow →</a>
 </div>
 
-<!-- Footer -->
 <footer style="border-top:1px solid var(--border)">
   <div class="footer">
     <div class="footer-logo">maslow.</div>
@@ -698,18 +320,13 @@ body {
 </div>
 
 <script>
-// ── Canvas widget ──────────────────────────────────────────
 const LAYERS = {
-  survival:     { cols:4,  height:52,  border:'#E13E15', text:'#E13E15', pip:'#E13E15'  },
-  nourishment:  { cols:6,  height:90,  border:'#CC9C00', text:'#8A6A00', pip:'#FFC300'  },
-  appreciation: { cols:6,  height:130, border:'#A8B8B0', text:'#4A6860', pip:'#D8E2DC'  },
-  play:         { cols:12, height:200, border:'#1B3627', text:'#1B3627', pip:'#1B3627'  },
+  survival:     { cols:4,  height:52,  border:'#E13E15', text:'#E13E15', pip:'#E13E15' },
+  nourishment:  { cols:6,  height:90,  border:'#CC9C00', text:'#8A6A00', pip:'#FFC300' },
+  appreciation: { cols:6,  height:130, border:'#A8B8B0', text:'#4A6860', pip:'#D8E2DC' },
+  play:         { cols:12, height:200, border:'#1B3627', text:'#1B3627', pip:'#1B3627' },
 }
 const LAYER_ORDER = ['survival','nourishment','appreciation','play']
-const LAYER_BG = {
-  survival:'#FFF0EC', nourishment:'#FFF9E0', appreciation:'#F2F5F3', play:'#E8EFE9'
-}
-
 const NEEDS = [
   {id:'movement',  name:'Movement'},
   {id:'community', name:'Community'},
@@ -722,26 +339,19 @@ const NEEDS = [
   {id:'dwelling',  name:'Dwelling'},
   {id:'intimacy',  name:'Intimacy'},
 ]
-
 const canvas = Object.fromEntries(NEEDS.map(n => [n.id, 'nourishment']))
 let openDropdown = null
 
 function canAccommodate(needId, newMode) {
   const baselineArea = NEEDS.length * LAYERS['nourishment'].cols * LAYERS['nourishment'].height
-  const usedArea = NEEDS.reduce((s,n) => {
-    const l = LAYERS[canvas[n.id]]
-    return s + l.cols * l.height
-  }, 0)
+  const usedArea = NEEDS.reduce((s,n) => { const l = LAYERS[canvas[n.id]]; return s + l.cols * l.height }, 0)
   const diff = (LAYERS[newMode].cols * LAYERS[newMode].height) - (LAYERS[canvas[needId]].cols * LAYERS[canvas[needId]].height)
   return usedArea + diff <= baselineArea
 }
 
 function computeAnxiety() {
   const baselineArea = NEEDS.length * LAYERS['nourishment'].cols * LAYERS['nourishment'].height
-  const usedArea = NEEDS.reduce((s,n) => {
-    const l = LAYERS[canvas[n.id]]
-    return s + l.cols * l.height
-  }, 0)
+  const usedArea = NEEDS.reduce((s,n) => { const l = LAYERS[canvas[n.id]]; return s + l.cols * l.height }, 0)
   return Math.max(0, 1 - usedArea / baselineArea)
 }
 
@@ -754,8 +364,6 @@ function computeProgress() {
 function render() {
   const grid = document.getElementById('cw-grid')
   grid.innerHTML = ''
-
-  // Anxiety block
   const anxPct = computeAnxiety()
   if (anxPct > 0.01) {
     const h = Math.round(anxPct * 300)
@@ -767,23 +375,18 @@ function render() {
     }
     grid.appendChild(anx)
   }
-
-  // Sort by mode hierarchy
   const sorted = [...NEEDS].sort((a,b) => {
     const order = {play:0, appreciation:1, nourishment:2, survival:3}
     return (order[canvas[a.id]] ?? 2) - (order[canvas[b.id]] ?? 2)
   })
-
   sorted.forEach(n => {
     const mode = canvas[n.id]
     const lyr = LAYERS[mode]
     const isOpen = openDropdown === n.id
     const nameFz = lyr.height >= 200 ? 22 : lyr.height >= 130 ? 17 : lyr.height >= 90 ? 13 : 10
-
     const tile = document.createElement('div')
     tile.className = 'cw-tile'
     tile.style.cssText = `grid-column:span ${lyr.cols};height:${lyr.height}px;border-color:${lyr.border}`
-
     tile.innerHTML = `
       <div class="cw-tile-top">
         <div class="cw-tile-piplabel">
@@ -804,11 +407,8 @@ function render() {
         </div>
       </div>
       <div class="cw-tile-name" style="color:${lyr.text};font-size:${nameFz}px">${n.name}</div>`
-
     grid.appendChild(tile)
   })
-
-  // Progress
   const pct = computeProgress()
   const color = pct >= 100 ? '#1B3627' : pct >= 70 ? '#1A1A18' : '#E13E15'
   document.getElementById('prog-fill').style.width = pct + '%'
@@ -817,11 +417,9 @@ function render() {
   document.getElementById('prog-pct').style.color = color
 }
 
-// Event delegation
 document.getElementById('cw-grid').addEventListener('click', e => {
   const btn = e.target.closest('.cw-dropdown-btn')
   const item = e.target.closest('.cw-dropdown-item')
-
   if (btn) {
     e.stopPropagation()
     const id = btn.dataset.id
@@ -829,27 +427,19 @@ document.getElementById('cw-grid').addEventListener('click', e => {
     render()
     return
   }
-
   if (item) {
     e.stopPropagation()
     const id = item.dataset.id
     const newMode = item.dataset.mode
     if (newMode !== canvas[id]) {
       const isUpgrade = LAYER_ORDER.indexOf(newMode) > LAYER_ORDER.indexOf(canvas[id])
-      if (!isUpgrade || canAccommodate(id, newMode)) {
-        canvas[id] = newMode
-      }
+      if (!isUpgrade || canAccommodate(id, newMode)) canvas[id] = newMode
     }
     openDropdown = null
     render()
     return
   }
-
-  // Click outside closes dropdown
-  if (openDropdown) {
-    openDropdown = null
-    render()
-  }
+  if (openDropdown) { openDropdown = null; render() }
 })
 
 render()
