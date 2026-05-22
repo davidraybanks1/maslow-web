@@ -7,446 +7,487 @@
 <meta name="description" content="Anxiety fills the space your unmet needs leave behind. Maslow helps you fill that space first.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Mono:ital,wght@0,200;0,400;0,500;1,200;1,400&display=swap" rel="stylesheet">
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
+  --ink:     #1A1A1A;
+  --ink2:    #5E5E5E;
+  --ink3:    #9A9A9A;
+  --ink4:    #CFCFCF;
+  --border:  #D8D8D8;
+  --border2: #E8E8E8;
   --bg:      #FFFFFF;
-  --bg2:     #F5F2EC;
-  --bg3:     #EDE9E0;
-  --ink:     #1A1A18;
-  --ink2:    #5A5750;
-  --ink3:    #9A9690;
-  --border:  #D8D3C8;
-  --white:   #FFFFFF;
-  --play:    #1B3627;
-  --appr:    #D8E2DC;
-  --appr-b:  #A8B8B0;
-  --appr-t:  #4A6860;
-  --nour:    #FFC300;
-  --nour-b:  #CC9C00;
-  --nour-t:  #8A6A00;
-  --surv:    #E13E15;
-  --anxiety: #2C2820;
-  --serif:   'Instrument Serif', serif;
-  --mono:    'DM Mono', monospace;
-  --sans:    'DM Sans', sans-serif;
+  --play:        rgb(26,61,46);
+  --appr:        rgb(184,195,177);
+  --nour:        rgb(232,184,31);
+  --surv:        rgb(217,59,28);
+  --anxiety-bg:  rgb(28,24,20);
+  --sans: 'Instrument Sans', Inter, system-ui, sans-serif;
+  --mono: 'DM Mono', 'JetBrains Mono', ui-monospace, monospace;
 }
 
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 body { font-family: var(--sans); background: var(--bg); color: var(--ink); }
 
-.nav {
-  position: fixed; top: 0; left: 0; right: 0;
-  z-index: 100;
+.section-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border2);
   display: flex; justify-content: space-between; align-items: center;
-  padding: 0 48px; height: 56px;
-  background: var(--bg); border-bottom: 1px solid var(--border);
+  padding: 0 96px; height: 52px;
 }
-.nav-logo { font-family: var(--serif); font-size: 19px; color: var(--ink); letter-spacing: -0.02em; text-decoration: none; }
-.nav-links { display: flex; gap: 28px; }
-.nav-link { font-family: var(--mono); font-size: 10px; color: var(--ink3); letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 0.15s; }
-.nav-link:hover { color: var(--ink); }
+.section-nav-left { font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink2); }
+.section-nav-right { display: inline-flex; align-items: center; gap: 10px; }
+.snr-item { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; line-height: 1; color: var(--ink3); padding-bottom: 3px; display: inline-block; text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.15s, border-color 0.15s; }
+.snr-item.active { color: var(--ink); border-bottom-color: var(--ink); }
+.snr-item:hover { color: var(--ink2); }
+.snr-dot { font-family: var(--mono); font-size: 11px; color: var(--ink4); }
 
-.page { padding-top: 56px; }
-.section { max-width: 1080px; margin: 0 auto; padding: 120px 48px; }
-.section-wide { padding: 120px 48px; background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.divider { border: none; border-top: 1px solid var(--border); max-width: 1080px; margin: 0 auto; }
+.section { padding: 96px 96px 120px; max-width: 1440px; margin: 0 auto; border-bottom: 1px solid var(--border2); }
 
-.eyebrow { font-family: var(--mono); font-size: 10px; color: var(--ink3); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px; }
-.display { font-family: var(--serif); font-size: clamp(48px, 7vw, 84px); line-height: 1.02; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 28px; }
-.display em { font-style: italic; }
-.headline { font-family: var(--serif); font-size: clamp(36px, 4.5vw, 56px); line-height: 1.07; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 24px; }
-.headline em { font-style: italic; }
-.body { font-family: var(--mono); font-size: 13px; color: var(--ink2); line-height: 1.8; font-weight: 400; margin-bottom: 14px; letter-spacing: 0.01em; }
-.body strong { color: var(--ink); font-weight: 500; }
-.body:last-child { margin-bottom: 0; }
+.hero { padding: 120px 96px 140px; max-width: 1440px; margin: 0 auto; border-bottom: 1px solid var(--border2); }
+.hero-headline { font-family: var(--sans); font-size: clamp(48px, 5.5vw, 72px); font-weight: 400; line-height: 1.0; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 40px; max-width: 900px; }
+.hero-headline em { font-style: italic; }
+.hero-body { font-family: var(--mono); font-size: 15px; line-height: 1.75; color: var(--ink); font-weight: 200; max-width: 480px; margin-bottom: 14px; }
+.hero-body strong { font-weight: 500; }
 
-.hero { max-width: 1080px; margin: 0 auto; padding: 140px 48px 100px; }
-.hero-inner { max-width: 720px; }
-.hero-sub { max-width: 420px; }
-.hero-arrow { font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: 0.08em; margin-top: 32px; }
+.section-headline { font-family: var(--sans); font-size: clamp(52px, 6vw, 84px); font-weight: 400; line-height: 1.02; letter-spacing: -0.01em; color: var(--ink); }
+.section-headline em { font-style: italic; }
+.mono-body { font-family: var(--mono); font-size: 15px; line-height: 1.75; color: var(--ink); font-weight: 200; }
+.mono-body strong { font-weight: 500; }
+.mono-muted { color: var(--ink2); }
 
-.canvas-section { padding: 0 48px 120px; max-width: 1080px; margin: 0 auto; }
-.canvas-intro { max-width: 580px; margin-bottom: 48px; }
+.two-col { display: grid; grid-template-columns: 1.05fr 1fr; gap: 96px; align-items: flex-start; }
 
-.canvas-widget { border: 1.5px solid var(--ink); border-radius: 18px; padding: 20px; background: var(--white); }
-.cw-header { margin-bottom: 12px; }
-.cw-title { font-family: var(--mono); font-size: 11px; color: var(--ink); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 3px; }
-.cw-sub { font-family: var(--mono); font-size: 10px; color: var(--ink3); letter-spacing: 0.06em; font-style: italic; }
-.cw-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 12px; }
-.cw-leg { display: flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 9px; color: var(--ink3); letter-spacing: 0.06em; }
-.cw-pip { width: 8px; height: 8px; border-radius: 50%; }
-.cw-progress { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.cw-prog-label { font-family: var(--mono); font-size: 10px; color: var(--ink3); letter-spacing: 0.06em; white-space: nowrap; }
-.cw-prog-track { flex: 1; height: 3px; background: var(--border); border-radius: 3px; overflow: hidden; }
-.cw-prog-fill { height: 100%; border-radius: 3px; transition: width 0.5s cubic-bezier(0.4,0,0.2,1); }
-.cw-prog-pct { font-family: var(--serif); font-size: 20px; letter-spacing: -0.02em; min-width: 44px; text-align: right; transition: color 0.3s; }
-.cw-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 5px; }
-.cw-anxiety { grid-column: 1 / -1; background: var(--anxiety); border-radius: 12px; display: flex; flex-direction: column; justify-content: flex-end; padding: 12px 14px; overflow: hidden; transition: height 0.5s cubic-bezier(0.4,0,0.2,1); }
-.cw-anx-eye { font-family: var(--mono); font-size: 9px; color: #6A6458; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
-.cw-anx-txt { font-family: var(--serif); font-style: italic; font-size: 14px; color: #9A9488; line-height: 1.3; }
-.cw-tile { border: 1.5px solid; border-radius: 12px; padding: 9px 11px; display: flex; flex-direction: column; justify-content: space-between; background: transparent; overflow: hidden; transition: height 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.3s; position: relative; }
-.cw-tile-top { display: flex; align-items: center; justify-content: space-between; }
-.cw-tile-piplabel { display: flex; align-items: center; gap: 5px; }
-.cw-tile-pip { width: 8px; height: 8px; border-radius: 50%; }
-.cw-tile-mode { font-family: var(--mono); font-size: 7px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; }
-.cw-tile-name { font-family: var(--serif); line-height: 1.1; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.cw-dropdown-wrap { position: relative; }
-.cw-dropdown-btn { background: transparent; border: none; cursor: pointer; font-size: 11px; padding: 2px 3px; opacity: 0.5; transition: opacity 0.15s; line-height: 1; }
-.cw-dropdown-btn:hover { opacity: 1; }
-.cw-dropdown { position: absolute; top: calc(100% + 4px); right: 0; background: var(--white); border: 1.5px solid var(--border); border-radius: 11px; overflow: hidden; z-index: 50; min-width: 130px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-.cw-dropdown-item { display: flex; align-items: center; gap: 8px; padding: 9px 11px; cursor: pointer; font-size: 11px; font-family: var(--sans); color: var(--ink2); transition: background 0.1s; border-bottom: 1px solid var(--border); }
-.cw-dropdown-item:last-child { border-bottom: none; }
-.cw-dropdown-item:hover { background: var(--bg); }
-.cw-dropdown-active { background: var(--bg); }
-.cw-dropdown-pip { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-.cw-dropdown-check { margin-left: auto; font-size: 9px; color: var(--ink3); }
+.bullet-list { border-top: 1px solid var(--border); }
+.bullet-item { padding: 22px 0; border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: 15px; line-height: 1.7; color: var(--ink); font-weight: 200; display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: baseline; }
+.bullet-item-dot { font-size: 14px; color: var(--ink); line-height: 1; }
 
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-.two-col-wide { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+.needs-grid-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border2); font-family: var(--mono); font-size: 11px; color: var(--ink2); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 80px; }
+.needs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.need-card { background: var(--bg); border: 1px solid var(--border2); box-shadow: 0 1px 0 rgba(0,0,0,0.02), 0 12px 20px -16px rgba(0,0,0,0.18); padding: 20px 20px 22px; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; border-radius: 3px; }
+.need-card-top { display: flex; justify-content: space-between; align-items: flex-start; min-height: 14px; }
+.need-card-num { font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: 0.02em; }
+.need-card-pip { width: 10px; height: 10px; border-radius: 50%; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.15); }
+.need-card-name { font-family: var(--sans); font-size: 30px; font-weight: 400; letter-spacing: -0.005em; line-height: 1.05; color: var(--ink); }
+.need-card-mode { font-family: var(--mono); font-size: 10.5px; color: var(--ink2); margin-top: 10px; text-transform: uppercase; letter-spacing: 0.18em; }
 
-.needs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 32px; }
-.need-card { border: 1.5px solid var(--ink); border-radius: 12px; padding: 20px 16px 16px; min-height: 80px; display: flex; flex-direction: column; justify-content: flex-end; background: var(--white); transition: background 0.15s; cursor: default; }
-.need-card:hover { background: var(--bg3); }
-.need-card-name { font-family: var(--serif); font-size: 17px; color: var(--ink); letter-spacing: -0.01em; }
+.modes-table { border-top: 1px solid var(--border); margin-top: 64px; }
+.mode-row { padding: 32px 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 60px 240px 1fr; gap: 32px; align-items: flex-start; }
+.mode-row-num { font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: 0.16em; text-transform: uppercase; padding-top: 6px; }
+.mode-row-label { display: inline-flex; align-items: center; gap: 10px; padding-top: 4px; }
+.mode-pip { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.15); }
+.mode-name { font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 500; }
+.mode-desc { font-family: var(--mono); font-size: 15px; line-height: 1.75; color: var(--ink); font-weight: 200; }
+.mode-desc em { font-style: italic; }
 
-.modes-list { display: flex; flex-direction: column; }
-.mode-item { padding: 20px 0; border-bottom: 1px solid var(--border); }
-.mode-item:first-child { border-top: 1px solid var(--border); }
-.mode-name { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-.mode-pip { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.mode-desc { font-family: var(--mono); font-size: 12px; color: var(--ink2); line-height: 1.75; letter-spacing: 0.01em; }
-.mode-desc em { font-style: italic; color: var(--ink); }
+.canvas-section { background: var(--bg); padding: 96px 96px 120px; border-bottom: 1px solid var(--border2); }
+.canvas-section-inner { max-width: 1440px; margin: 0 auto; }
+.canvas-hed { font-family: var(--sans); font-size: clamp(52px, 6vw, 84px); font-weight: 400; line-height: 1.02; letter-spacing: -0.01em; color: var(--ink); max-width: 920px; }
+.canvas-hed em { font-style: italic; }
+.canvas-body { font-family: var(--mono); font-size: 15px; line-height: 1.75; color: var(--ink2); font-weight: 200; max-width: 720px; margin-top: 40px; }
 
-.steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--border); margin-top: 64px; }
-.step { display: grid; grid-template-columns: 90px 1fr; padding: 48px 0; border-bottom: 1px solid var(--border); }
-.step:nth-child(odd) { padding-right: 52px; border-right: 1px solid var(--border); }
-.step:nth-child(even) { padding-left: 52px; }
-.step-num { font-family: var(--serif); font-size: clamp(48px, 5vw, 68px); color: var(--border); line-height: 1; letter-spacing: -0.03em; }
-.step-title { font-family: var(--serif); font-size: 22px; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 10px; line-height: 1.2; }
-.step-body { font-family: var(--mono); font-size: 11px; color: var(--ink2); line-height: 1.8; letter-spacing: 0.01em; }
+/* Canvas animation */
+.mc-wrap { font-family: var(--mono); background: #fff; width: 100%; margin-top: 64px; }
+.mc-frame { border: 1px solid var(--border2); box-shadow: 0 1px 0 rgba(0,0,0,0.02), 0 12px 24px -16px rgba(0,0,0,0.18); border-radius: 3px; overflow: hidden; background: #fff; }
+.mc-header { padding: 16px 20px 12px; border-bottom: 1px solid #ebebeb; }
+.mc-title { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #1a1a1a; margin-bottom: 2px; }
+.mc-sub { font-size: 10px; color: #9a9a9a; letter-spacing: 0.04em; font-style: italic; font-weight: 200; }
+.mc-progress { padding: 10px 20px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #ebebeb; }
+.mc-prog-label { font-size: 10px; color: #9a9a9a; letter-spacing: 0.06em; white-space: nowrap; }
+.mc-prog-track { flex: 1; height: 2px; background: #ebebeb; border-radius: 2px; overflow: hidden; }
+.mc-prog-fill { height: 100%; border-radius: 2px; transition: width 0.8s cubic-bezier(0.4,0,0.2,1), background 0.5s; }
+.mc-prog-pct { font-family: 'Instrument Sans', sans-serif; font-style: italic; font-size: 18px; letter-spacing: -0.02em; min-width: 44px; text-align: right; transition: color 0.5s; }
+.mc-legend { padding: 8px 20px; display: flex; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid #ebebeb; }
+.mc-leg { display: flex; align-items: center; gap: 5px; font-size: 9px; color: #9a9a9a; letter-spacing: 0.06em; }
+.mc-leg-pip { width: 7px; height: 7px; border-radius: 50%; }
+.mc-canvas { padding: 8px; display: flex; flex-direction: column; gap: 6px; height: 560px; box-sizing: border-box; }
+.anxiety-bar { background: #2C2820; border-radius: 3px; display: flex; flex-direction: column; justify-content: flex-end; padding: 14px 16px; overflow: hidden; flex-shrink: 0; transition: height 1s cubic-bezier(0.4,0,0.2,1); min-height: 0; }
+.anxiety-txt { font-family: var(--mono); font-size: 12px; font-weight: 200; color: #9A9488; line-height: 1.5; letter-spacing: 0.04em; font-style: italic; }
+.needs-grid-anim { display: flex; flex-direction: column; gap: 6px; }
+.needs-row-anim { display: flex; gap: 6px; }
+.need-tile { border-radius: 3px; border: 1px solid; padding: 14px 16px 16px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; flex-shrink: 0; background: #fff; transition: border-color 0.5s, box-shadow 0.5s; }
+.tile-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.tile-num { font-size: 11px; color: #c8c8c8; letter-spacing: 0.02em; font-weight: 200; }
+.tile-pip { width: 10px; height: 10px; border-radius: 50%; transition: background 0.5s; flex-shrink: 0; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.12); }
+.tile-name { font-family: 'Instrument Sans', sans-serif; font-weight: 400; line-height: 1.05; letter-spacing: -0.01em; color: #1a1a1a; transition: font-size 0.5s; }
+.tile-mode { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; margin-top: 6px; transition: color 0.5s; }
 
-.cta { text-align: center; max-width: 560px; margin: 0 auto; padding: 140px 48px; }
-.cta .headline { color: var(--ink); }
-.cta-body { font-size: 15px; color: var(--ink2); line-height: 1.7; font-weight: 300; margin-bottom: 36px; }
-.cta-btn { display: inline-block; background: var(--ink); color: #F5F2EC; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 32px; border-radius: 10px; text-decoration: none; transition: opacity 0.15s; }
+.steps-nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: flex-end; margin-top: 96px; }
+.step-num { font-family: var(--sans); font-style: italic; font-size: clamp(80px, 9vw, 120px); line-height: 0.9; font-weight: 400; color: var(--ink); letter-spacing: -0.03em; padding-bottom: 18px; }
+.steps-timeline { position: relative; height: 16px; margin-bottom: 32px; }
+.steps-timeline-line { position: absolute; left: 6%; right: 6%; top: 7px; height: 1px; background: var(--ink); }
+.steps-timeline-dots { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
+.steps-timeline-dot { display: flex; justify-content: center; align-items: center; }
+.steps-timeline-dot-inner { width: 11px; height: 11px; border-radius: 50%; background: var(--bg); border: 1.5px solid var(--ink); }
+.steps-content { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.step-title { font-family: var(--sans); font-size: 24px; font-weight: 400; line-height: 1.15; color: var(--ink); margin-bottom: 14px; letter-spacing: -0.005em; }
+.step-body { font-family: var(--mono); font-size: 13px; line-height: 1.7; color: var(--ink2); font-weight: 200; }
+
+.cta { padding: 120px 96px 140px; max-width: 1440px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 80px; }
+.cta-body { font-family: var(--mono); font-size: 14px; color: var(--ink2); line-height: 1.75; font-weight: 200; max-width: 360px; margin-bottom: 8px; }
+.cta-btn { display: inline-block; background: var(--ink); color: #FAF7F0; font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 28px; border-radius: 3px; text-decoration: none; transition: opacity 0.15s; align-self: flex-start; }
 .cta-btn:hover { opacity: 0.85; }
 
-.footer { border-top: 1px solid var(--border); padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; max-width: 1080px; margin: 0 auto; }
-.footer-logo { font-family: var(--serif); font-size: 16px; color: var(--ink); }
-.footer-copy { font-family: var(--mono); font-size: 10px; color: var(--ink3); letter-spacing: 0.06em; }
+.footer { border-top: 1px solid var(--border2); padding: 28px 96px; display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { font-family: var(--sans); font-size: 16px; color: var(--ink); font-style: italic; }
+.footer-copy { font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: 0.08em; }
 
-@media (max-width: 768px) {
-  .nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  .hero, .section, .canvas-section, .cta { padding-left: 20px; padding-right: 20px; }
+@media (max-width: 900px) {
+  .section, .hero, .canvas-section, .cta, .footer { padding-left: 24px; padding-right: 24px; }
+  .section-nav { padding: 0 24px; }
   .two-col, .two-col-wide { grid-template-columns: 1fr; gap: 48px; }
   .needs-grid { grid-template-columns: repeat(2, 1fr); }
-  .steps-grid { grid-template-columns: 1fr; }
-  .step:nth-child(odd) { padding-right: 0; border-right: none; }
-  .step:nth-child(even) { padding-left: 0; }
-  .footer { padding: 24px 20px; flex-direction: column; gap: 10px; text-align: center; }
+  .mode-row { grid-template-columns: 40px 1fr; gap: 16px; }
+  .mode-row p { grid-column: 1 / -1; }
+  .steps-nums { display: none; }
+  .steps-timeline { display: none; }
+  .steps-content { grid-template-columns: 1fr; gap: 0; }
+  .steps-content > div { padding-right: 0; padding: 28px 0; border-bottom: 1px solid var(--border2); }
+  .step-title::before { font-family: var(--sans); font-style: italic; font-size: 40px; font-weight: 400; color: var(--ink); letter-spacing: -0.03em; display: block; margin-bottom: 8px; }
+  .steps-content > div:nth-child(1) .step-title::before { content: "01"; }
+  .steps-content > div:nth-child(2) .step-title::before { content: "02"; }
+  .steps-content > div:nth-child(3) .step-title::before { content: "03"; }
+  .steps-content > div:nth-child(4) .step-title::before { content: "04"; }
+  .cta { flex-direction: column; align-items: flex-start; }
+  .section-nav-right { display: none; }
+  .mc-canvas { height: 420px; }
 }
 </style>
 </head>
 <body>
-<div class="page">
 
-<nav class="nav">
-  <a class="nav-logo" href="#">maslow.</a>
-  <div class="nav-links">
-    <a class="nav-link" href="#explained">Explained</a>
-    <a class="nav-link" href="#needs">Needs</a>
-    <a class="nav-link" href="#modes">Modes</a>
-    <a class="nav-link" href="https://app.mymaslow.com/onboarding">Get started</a>
+<nav class="section-nav" id="main-nav">
+  <div class="section-nav-left" id="nav-section-label">01 — MASLOW</div>
+  <div class="section-nav-right">
+    <a href="#needs" class="snr-item active" id="nav-needs">10 needs</a>
+    <span class="snr-dot">·</span>
+    <a href="#modes" class="snr-item" id="nav-modes">4 modes</a>
+    <span class="snr-dot">·</span>
+    <a href="#canvas" class="snr-item" id="nav-canvas">1 canvas</a>
   </div>
 </nav>
 
-<div class="hero">
-  <div class="hero-inner">
-    <div class="display">anxiety isn't who you are.<br>it's who you <em>aren't.</em></div>
-    <div class="hero-sub">
-      <p class="body">Anxiety fills the space of your unmet needs. The louder it gets, the more essential parts of yourself are being ignored.</p>
-      <p class="body">Don't try to manage anxiety. Focus on meeting your needs.</p>
-      <p class="body"><strong>Maslow is your partner.</strong></p>
-    </div>
-    <div class="hero-arrow">see how it works ↓</div>
+<!-- Hero -->
+<div class="hero" id="hero">
+  <div class="hero-headline">anxiety isn't who you are.<br>it's who you <em>aren't.</em></div>
+  <p class="hero-body">Anxiety fills the space of your unmet needs. The louder it gets, the more essential parts of yourself are being ignored.</p>
+  <p class="hero-body">Don't try to manage anxiety. Focus on meeting your needs.</p>
+  <p class="hero-body"><strong>Maslow is your partner.</strong></p>
+  <div style="display:flex;gap:24px;margin-top:28px">
+    <a href="#needs" style="font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);text-decoration:none;border-bottom:1px solid var(--border2);padding-bottom:4px;transition:color 0.15s,border-color 0.15s" onmouseover="this.style.color='#1A1A1A';this.style.borderColor='#1A1A1A'" onmouseout="this.style.color='#9A9A9A';this.style.borderColor='#E8E8E8'">10 needs</a>
+    <a href="#modes" style="font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);text-decoration:none;border-bottom:1px solid var(--border2);padding-bottom:4px;transition:color 0.15s,border-color 0.15s" onmouseover="this.style.color='#1A1A1A';this.style.borderColor='#1A1A1A'" onmouseout="this.style.color='#9A9A9A';this.style.borderColor='#E8E8E8'">4 modes</a>
+    <a href="#canvas" style="font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);text-decoration:none;border-bottom:1px solid var(--border2);padding-bottom:4px;transition:color 0.15s,border-color 0.15s" onmouseover="this.style.color='#1A1A1A';this.style.borderColor='#1A1A1A'" onmouseout="this.style.color='#9A9A9A';this.style.borderColor='#E8E8E8'">1 canvas</a>
   </div>
 </div>
 
-<div class="canvas-section">
-  <div class="canvas-intro">
-    <div class="eyebrow">Your canvas</div>
-    <div class="headline">meet your needs.<br><em>become more of yourself.</em></div>
-    <p class="body">Maslow is a simple framework that helps identify the needs that matter to you and understand how to meet them in a way that works for you. It's designed like a canvas intentionally. As your needs take up more room, there's less room for anxiety to creep in.</p>
-    <p class="body">Tap ▾ on any "need" to change its "mode." Watch the canvas respond.</p>
-  </div>
-  <div class="canvas-widget">
-    <div class="cw-header">
-      <div class="cw-title">your maslow</div>
-      <div class="cw-sub">tap ▾ on any need to change its mode</div>
-    </div>
-    <div class="cw-legend">
-      <div class="cw-leg"><div class="cw-pip" style="background:#1B3627"></div>play</div>
-      <div class="cw-leg"><div class="cw-pip" style="background:#D8E2DC;border:1px solid #A8B8B0"></div>appreciation</div>
-      <div class="cw-leg"><div class="cw-pip" style="background:#FFC300;border:1px solid #CC9C00"></div>nourishment</div>
-      <div class="cw-leg"><div class="cw-pip" style="background:#E13E15"></div>survival</div>
-      <div class="cw-leg"><div class="cw-pip" style="background:#2C2820"></div>anxiety</div>
-    </div>
-    <div class="cw-progress">
-      <span class="cw-prog-label">canvas composed</span>
-      <div class="cw-prog-track"><div class="cw-prog-fill" id="prog-fill" style="width:100%;background:#1B3627"></div></div>
-      <span class="cw-prog-pct" id="prog-pct" style="color:#1B3627">100%</span>
-    </div>
-    <div class="cw-grid" id="cw-grid"></div>
-  </div>
-</div>
-
-<hr class="divider">
-
+<!-- Needs -->
 <div class="section" id="needs">
-  <div class="two-col-wide">
-    <div>
-      <div class="eyebrow">The needs</div>
-      <div class="headline">know what <em>you</em> need,</div>
-      <p class="body">There are things we need to live and things we need to feel alive. They are usually different versions of the same needs. We just need to know which ones matter — on a physiological level, not just a logical one.</p>
-      <p class="body"><strong>There are 10 needs most people need most.</strong></p>
-      <div class="needs-grid">
-        <div class="need-card"><div class="need-card-name">Community</div></div>
-        <div class="need-card"><div class="need-card-name">Movement</div></div>
-        <div class="need-card"><div class="need-card-name">Nutrition</div></div>
-        <div class="need-card"><div class="need-card-name">Intimacy</div></div>
-        <div class="need-card"><div class="need-card-name">Purpose</div></div>
-        <div class="need-card"><div class="need-card-name">Beauty</div></div>
-        <div class="need-card"><div class="need-card-name">Security</div></div>
-        <div class="need-card"><div class="need-card-name">Dwelling</div></div>
-        <div class="need-card"><div class="need-card-name">Rest</div></div>
-        <div class="need-card"><div class="need-card-name">Reflection</div></div>
-      </div>
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:56px">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink2)">02 — THE NEEDS</div>
+    <div style="display:inline-flex;align-items:center;gap:10px">
+      <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px">10 needs</span>
+      <span style="font-family:var(--mono);font-size:11px;color:var(--ink4)">·</span>
+      <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3)">4 modes</span>
+      <span style="font-family:var(--mono);font-size:11px;color:var(--ink4)">·</span>
+      <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3)">1 canvas</span>
     </div>
-    <div style="padding-top:64px">
-  <p class="body" style="margin-bottom:0;padding:14px 0;border-top:1px solid var(--border)">Needs aren't aspirational goals.</p>
-  <p class="body" style="margin-bottom:0;padding:14px 0;border-top:1px solid var(--border)">They have no particular order.</p>
-  <p class="body" style="margin-bottom:0;padding:14px 0;border-top:1px solid var(--border)">They are not even the things that give your life meaning.</p>
-  <p class="body" style="margin-bottom:0;padding:14px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">Needs create the conditions for meaning and experience.</p>
-  <p class="body" style="margin-top:28px">Like a canvas being prepped for paint, meeting your needs helps you bring the best version of yourself to each moment. When you meet the needs that matter to you, you create new energy rather than burn it fighting against anxiety.</p>
-</div>
   </div>
-</div>
-
-<hr class="divider">
-
-<div class="section" id="modes">
   <div class="two-col">
     <div>
-      <div class="eyebrow">The modes</div>
-      <div class="headline">know how <em>you</em> need it</div>
-      <p class="body">What's often missing from meeting our needs, is meeting them in a way that our unique bodies and minds internalize it. For example, you need to eat, but what you eat, the circumstances in which you eat, and the nutrition you get from eating determine if your body truly feels fed.</p>
-      <p class="body">Modes tailor needs to each person, and can change over time and through different seasons of life.</p>
+      <div class="section-headline">know what <em>you</em> need,</div>
+      <p class="mono-body" style="margin-top:40px;max-width:520px">There are things we need to live and things we need to feel alive. They are usually different versions of the same needs. We just need to know which ones matter — on a physiological level, not just a logical one.</p>
+      <p class="mono-body" style="margin-top:24px;max-width:520px;font-weight:500">There are 10 needs most people need most.</p>
     </div>
-    <div>
-      <div class="modes-list">
-        <div class="mode-item">
-          <div class="mode-name"><div class="mode-pip" style="background:#E13E15"></div><span style="color:#E13E15">survival</span></div>
-          <div class="mode-desc">You're keeping this need alive. Nothing more. It's not feeding you — but you've chosen to let it take a back seat so something else can have the space it deserves.</div>
+    <div style="padding-top:16px">
+      <div class="bullet-list">
+        <div class="bullet-item"><span class="bullet-item-dot">•</span><span>Needs aren't aspirational goals.</span></div>
+        <div class="bullet-item"><span class="bullet-item-dot">•</span><span>They have no particular order.</span></div>
+        <div class="bullet-item"><span class="bullet-item-dot">•</span><span>They are not even the things that give your life meaning.</span></div>
+        <div class="bullet-item"><span class="bullet-item-dot">•</span><span>Needs create the conditions for meaning and experience.</span></div>
+      </div>
+      <p class="mono-body mono-muted" style="margin-top:28px;max-width:520px">Like a canvas being prepped for paint, meeting your needs helps you bring the best version of yourself to each moment. When you meet the needs that matter to you, you create new energy rather than burn it fighting against anxiety.</p>
+    </div>
+  </div>
+  <div class="needs-grid-header"><span>fig. 02 — the ten</span></div>
+  <div class="needs-grid">
+    <div class="need-card"><div class="need-card-top"><span class="need-card-num">01</span><span class="need-card-pip" style="background:var(--play)"></span></div><div><div class="need-card-name">Community</div><div class="need-card-mode">play</div></div></div>
+    <div class="need-card"><div class="need-card-top"><span class="need-card-num">02</span><span class="need-card-pip" style="background:var(--nour)"></span></div><div><div class="need-card-name">Movement</div><div class="need-card-mode">nourishment</div></div></div>
+    <div class="need-card"><div class="need-card-top"><span class="need-card-num">03</span><span class="need-card-pip" style="background:var(--appr)"></span></div><div><div class="need-card-name">Nutrition</div><div class="need-card-mode">appreciation</div></div></div>
+    <div class="need-card"><div class="need-card-top"><span class="need-card-num">04</span><span class="need-card-pip" style="background:var(--surv)"></span></div><div><div class="need-card-name">Intimacy</div><div class="need-card-mode">survival</div></div></div>
+    <div class="need-card"><div class="need-card-top"><span class="need-card-num">05</span><span class="need-card-pip" style="background:var(--play)"></span></div><div><div class="need-card-name">Purpose</div><div class="need-card-mode">play</div></div></div>
+    <div class="need-card"><div class="need-card-top"><span class="need-card-num">06</span><span class="need-card-pip" style="background:var(--nour)"></span></div><div><div class="need-card-name">Beauty</div><div class="need-card-mode">nourishment</div></div></div>
+    <div class="need-card"><div class="need-card-top"><span class="need-card-num">07</span><span class="need-card-pip" style="background:var(--appr)"></span></div><div><div class="need-card-name">Security</div><div class="need-card-mode">appreciation</div></div></div>
+    <div class="need-card"><div class="need-card-top"><span class="need-card-num">08</span><span class="need-card-pip" style="background:var(--play)"></span></div><div><div class="need-card-name">Dwelling</div><div class="need-card-mode">play</div></div></div>
+    <div class="need-card"><div class="need-card-top"><span class="need-card-num">09</span><span class="need-card-pip" style="background:var(--nour)"></span></div><div><div class="need-card-name">Rest</div><div class="need-card-mode">nourishment</div></div></div>
+    <div class="need-card"><div class="need-card-top"><span class="need-card-num">10</span><span class="need-card-pip" style="background:var(--appr)"></span></div><div><div class="need-card-name">Reflection</div><div class="need-card-mode">appreciation</div></div></div>
+  </div>
+  <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--border2);display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:0.16em;text-transform:uppercase">
+    <span>§ 01 of 05 sections</span><span>composition · 100%</span>
+  </div>
+</div>
+
+<!-- Modes -->
+<div class="section" id="modes">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:56px">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink2)">03 — THE MODES</div>
+    <div style="display:inline-flex;align-items:center;gap:10px">
+      <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3)">10 needs</span>
+      <span style="font-family:var(--mono);font-size:11px;color:var(--ink4)">·</span>
+      <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px">4 modes</span>
+      <span style="font-family:var(--mono);font-size:11px;color:var(--ink4)">·</span>
+      <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3)">1 canvas</span>
+    </div>
+  </div>
+  <div style="max-width:920px">
+    <div class="section-headline">know how <em>you</em> need it.</div>
+    <p class="mono-body" style="margin-top:40px;max-width:520px">What's often missing from meeting our needs is meeting them in a way our unique bodies and minds can internalize. You need to eat, but what you eat, the circumstances in which you eat, and the nutrition you get determine if your body truly feels fed.</p>
+    <p class="mono-body" style="margin-top:24px;max-width:520px;font-weight:500">Modes tailor needs to each person.</p>
+  </div>
+  <div class="modes-table">
+    <div class="mode-row">
+      <span class="mode-row-num">01</span>
+      <div class="mode-row-label"><span class="mode-pip" style="background:var(--surv)"></span><span class="mode-name" style="color:var(--surv)">survival</span></div>
+      <p class="mode-desc">You're keeping this need alive. Nothing more. It's not feeding you — but you've chosen to let it take a back seat so something else can have the space it deserves.</p>
+    </div>
+    <div class="mode-row">
+      <span class="mode-row-num">02</span>
+      <div class="mode-row-label"><span class="mode-pip" style="background:var(--nour)"></span><span class="mode-name" style="color:var(--nour)">nourishment</span></div>
+      <p class="mode-desc">You're meeting this need in a way that genuinely sustains you. It's not exciting — <em>it's better than that.</em> It's steady. The foundation everything else is built on.</p>
+    </div>
+    <div class="mode-row">
+      <span class="mode-row-num">03</span>
+      <div class="mode-row-label"><span class="mode-pip" style="background:var(--appr)"></span><span class="mode-name" style="color:var(--appr)">appreciation</span></div>
+      <p class="mode-desc">This need brings you real joy. You're not just maintaining it — you're present for it. It gives back more than the minimum. This is the texture of a life well lived.</p>
+    </div>
+    <div class="mode-row">
+      <span class="mode-row-num">04</span>
+      <div class="mode-row-label"><span class="mode-pip" style="background:var(--play)"></span><span class="mode-name" style="color:var(--play)">play</span></div>
+      <p class="mode-desc">This need has become part of who you are. It's no longer something you do — it's something you live. Time spent here doesn't feel like effort. <em>This is your ground.</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- Canvas -->
+<div class="canvas-section" id="canvas">
+  <div class="canvas-section-inner">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:56px">
+      <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink2)">04 — YOUR CANVAS</div>
+      <div style="display:inline-flex;align-items:center;gap:10px">
+        <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3)">10 needs</span>
+        <span style="font-family:var(--mono);font-size:11px;color:var(--ink4)">·</span>
+        <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3)">4 modes</span>
+        <span style="font-family:var(--mono);font-size:11px;color:var(--ink4)">·</span>
+        <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px">1 canvas</span>
+      </div>
+    </div>
+    <div class="canvas-hed">meet your needs.<br><em>become more of yourself.</em></div>
+    <p class="canvas-body">Your canvas brings it all together. It makes it easy to see the space available for anxiety. When you meet the needs important to you in a way that makes sense to you, you become more of yourself.</p>
+
+    <!-- Canvas animation -->
+    <div class="mc-wrap">
+      <div class="mc-frame">
+        <div class="mc-header">
+          <div class="mc-title">your maslow</div>
+          <div class="mc-sub">a composed canvas</div>
         </div>
-        <div class="mode-item">
-          <div class="mode-name"><div class="mode-pip" style="background:#FFC300"></div><span style="color:#8A6A00">nourishment</span></div>
-          <div class="mode-desc">You're meeting this need in a way that genuinely sustains you. It's not exciting — <em>it's better than that.</em> It's steady. The foundation everything else is built on.</div>
+        <div class="mc-progress">
+          <span class="mc-prog-label">canvas composed</span>
+          <div class="mc-prog-track"><div class="mc-prog-fill" id="pf" style="width:25%;background:#D93B1C"></div></div>
+          <div class="mc-prog-pct" id="pp" style="color:#D93B1C">25%</div>
         </div>
-        <div class="mode-item">
-          <div class="mode-name"><div class="mode-pip" style="background:#D8E2DC;border:1px solid #A8B8B0"></div><span style="color:#4A6860">appreciation</span></div>
-          <div class="mode-desc">This need brings you real joy. You're not just maintaining it — you're present for it. It gives back more than the minimum. This is the texture of a life well lived.</div>
+        <div class="mc-legend">
+          <div class="mc-leg"><div class="mc-leg-pip" style="background:#1B3A2D"></div>play</div>
+          <div class="mc-leg"><div class="mc-leg-pip" style="background:#B8C3B1"></div>appreciation</div>
+          <div class="mc-leg"><div class="mc-leg-pip" style="background:#E8B81F"></div>nourishment</div>
+          <div class="mc-leg"><div class="mc-leg-pip" style="background:#D93B1C"></div>survival</div>
+          <div class="mc-leg"><div class="mc-leg-pip" style="background:#2C2820"></div>anxiety</div>
         </div>
-        <div class="mode-item">
-          <div class="mode-name"><div class="mode-pip" style="background:#1B3627"></div><span style="color:#1B3627">play</span></div>
-          <div class="mode-desc">This need has become part of who you are. It's no longer something you do — it's something you live. Time spent here doesn't feel like effort. <em>This is your ground.</em></div>
+        <div class="mc-canvas" id="mc-canvas">
+          <div class="anxiety-bar" id="axb">
+            <div class="anxiety-txt" id="axt">anxiety fills the space you give it.</div>
+          </div>
+          <div class="needs-grid-anim" id="needs-grid"></div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="section-wide" id="explained">
-  <div style="max-width:1080px;margin:0 auto">
-    <div class="eyebrow">How it works</div>
-    <div class="headline" style="max-width:560px">your maslow,<br>in four steps</div>
-    <p class="body" style="max-width:480px;margin-bottom:0">It takes about five minutes to set up. Then it runs in the background of your life.</p>
-    <div class="steps-grid">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div>
-          <div class="step-title">Set your intentions</div>
-          <p class="step-body">Before anything else, get clear on where you're going. What does a good life look like for you right now? Without direction, meeting your needs is just maintenance.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div>
-          <div class="step-title">Build your canvas</div>
-          <p class="step-body">Answer a short survey and Maslow proposes a canvas — a visual map of your ten needs, sized by how much attention each one deserves right now. Adjust anything that doesn't feel right.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div>
-          <div class="step-title">Commit weekly</div>
-          <p class="step-body">Every Sunday, commit to one specific action for each need. Not a to-do list — intentional habits chosen because they align with who you are and how you're wired.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div>
-          <div class="step-title">Track and reflect</div>
-          <p class="step-body">Check in as you go. Log how you feel. At the end of each week, your summary shows what you built, what you didn't, and what the data suggests for next week.</p>
-        </div>
-      </div>
+<!-- How it works -->
+<div class="section" id="how">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:56px">
+    <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink2)">05 — HOW IT WORKS</div>
+    <div style="display:inline-flex;align-items:center;gap:10px">
+      <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3)">10 needs</span>
+      <span style="font-family:var(--mono);font-size:11px;color:var(--ink4)">·</span>
+      <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3)">4 modes</span>
+      <span style="font-family:var(--mono);font-size:11px;color:var(--ink4)">·</span>
+      <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3)">1 canvas</span>
     </div>
-    <p class="body" style="max-width:520px;margin-top:64px;padding-top:48px;border-top:1px solid var(--border);font-size:15px;color:var(--ink)">Over time, your canvas gets richer and the available space for anxiety shrinks.</p>
+  </div>
+  <div style="max-width:920px">
+    <div class="section-headline">your maslow,<br><em>in four steps</em></div>
+    <p class="mono-body" style="margin-top:40px;max-width:520px">It takes about five minutes to set up. Then it runs in the background of your life.</p>
+  </div>
+  <div class="steps-nums">
+    <div><span class="step-num">01</span></div>
+    <div><span class="step-num">02</span></div>
+    <div><span class="step-num">03</span></div>
+    <div><span class="step-num">04</span></div>
+  </div>
+  <div class="steps-timeline">
+    <div class="steps-timeline-line"></div>
+    <div class="steps-timeline-dots">
+      <div class="steps-timeline-dot"><span class="steps-timeline-dot-inner"></span></div>
+      <div class="steps-timeline-dot"><span class="steps-timeline-dot-inner"></span></div>
+      <div class="steps-timeline-dot"><span class="steps-timeline-dot-inner"></span></div>
+      <div class="steps-timeline-dot"><span class="steps-timeline-dot-inner"></span></div>
+    </div>
+  </div>
+  <div class="steps-content">
+    <div style="padding-right:24px">
+      <div class="step-title">Set your intentions</div>
+      <p class="step-body">Before anything else, get clear on where you're going. What does a good life look like for you right now? Without direction, meeting your needs is just maintenance.</p>
+    </div>
+    <div style="padding-right:24px">
+      <div class="step-title">Build your canvas</div>
+      <p class="step-body">Answer a short survey and Maslow proposes a canvas — a visual map of your ten needs, sized by how much attention each one deserves right now.</p>
+    </div>
+    <div style="padding-right:24px">
+      <div class="step-title">Commit weekly</div>
+      <p class="step-body">Every Sunday, commit to one specific action for each need. Not a to-do list — intentional habits chosen because they align with who you are.</p>
+    </div>
+    <div style="padding-right:24px">
+      <div class="step-title">Track and reflect</div>
+      <p class="step-body">Check in as you go. Log how you feel. At the end of each week, your summary shows what you built, what you didn't, and what the data suggests for next week.</p>
+    </div>
   </div>
 </div>
 
+<!-- CTA -->
 <div class="cta">
-  <div class="headline">Get started.</div>
-  <p class="cta-body">No app store. No subscription. Just a framework for living with more intention — and less anxiety.</p>
-  <a class="cta-btn" href="https://app.mymaslow.com/onboarding">Create your maslow →</a>
+  <div><div class="section-headline">Get started.</div></div>
+  <div style="display:flex;flex-direction:column;gap:16px;flex-shrink:0">
+    <p class="cta-body">No app store. No subscription. Just a framework for living with more intention — and less anxiety.</p>
+    <a class="cta-btn" href="https://app.mymaslow.com/onboarding">Create your maslow →</a>
+  </div>
 </div>
 
-<footer style="border-top:1px solid var(--border)">
-  <div class="footer">
-    <div class="footer-logo">maslow.</div>
-    <div class="footer-copy">get better at the habit of living</div>
-  </div>
+<footer class="footer">
+  <div class="footer-logo">maslow.</div>
+  <div class="footer-copy">practice becoming yourself</div>
 </footer>
 
-</div>
-
 <script>
-const LAYERS = {
-  survival:     { cols:4,  height:52,  border:'#E13E15', text:'#E13E15', pip:'#E13E15' },
-  nourishment:  { cols:6,  height:90,  border:'#CC9C00', text:'#8A6A00', pip:'#FFC300' },
-  appreciation: { cols:6,  height:130, border:'#A8B8B0', text:'#4A6860', pip:'#D8E2DC' },
-  play:         { cols:12, height:200, border:'#1B3627', text:'#1B3627', pip:'#1B3627' },
+const MODES = {
+  survival:     { border:'#e8e8e8', pip:'#D93B1C', modeColor:'#D93B1C', shadow:'0 1px 0 rgba(0,0,0,0.02), 0 10px 18px -14px rgba(0,0,0,0.13)' },
+  nourishment:  { border:'#e8e8e8', pip:'#E8B81F', modeColor:'#9A7200', shadow:'0 1px 0 rgba(0,0,0,0.02), 0 10px 18px -14px rgba(0,0,0,0.13)' },
+  appreciation: { border:'#e8e8e8', pip:'#B8C3B1', modeColor:'#5E7A6A', shadow:'0 1px 0 rgba(0,0,0,0.02), 0 10px 18px -14px rgba(0,0,0,0.13)' },
+  play:         { border:'#c8d4c8', pip:'#1B3A2D', modeColor:'#1B3A2D', shadow:'0 1px 0 rgba(0,0,0,0.03), 0 12px 20px -12px rgba(26,58,45,0.18)' },
 }
-const LAYER_ORDER = ['survival','nourishment','appreciation','play']
-const NEEDS = [
-  {id:'movement',  name:'Movement'},
-  {id:'community', name:'Community'},
-  {id:'reflection',name:'Reflection'},
-  {id:'purpose',   name:'Purpose'},
-  {id:'nutrition', name:'Nutrition'},
-  {id:'rest',      name:'Rest'},
-  {id:'beauty',    name:'Beauty'},
-  {id:'security',  name:'Security'},
-  {id:'dwelling',  name:'Dwelling'},
-  {id:'intimacy',  name:'Intimacy'},
+const TILE_H = { survival:52, nourishment:80, appreciation:110, play:180 }
+const CANVAS_H = 560, GAP = 6, ROWS = 5
+
+const TILES = [
+  { name:'Purpose',    mode:'survival', row:0, flex:'1 1 100%',            num:'01' },
+  { name:'Community',  mode:'survival', row:1, flex:'1 1 calc(50% - 3px)', num:'02' },
+  { name:'Movement',   mode:'survival', row:1, flex:'1 1 calc(50% - 3px)', num:'03' },
+  { name:'Nutrition',  mode:'survival', row:2, flex:'1 1 calc(50% - 3px)', num:'04' },
+  { name:'Rest',       mode:'survival', row:2, flex:'1 1 calc(50% - 3px)', num:'05' },
+  { name:'Reflection', mode:'survival', row:3, flex:'1 1 calc(50% - 3px)', num:'06' },
+  { name:'Beauty',     mode:'survival', row:3, flex:'1 1 calc(50% - 3px)', num:'07' },
+  { name:'Security',   mode:'survival', row:4, flex:'1 1 calc(33% - 4px)', num:'08' },
+  { name:'Dwelling',   mode:'survival', row:4, flex:'1 1 calc(33% - 4px)', num:'09' },
+  { name:'Intimacy',   mode:'survival', row:4, flex:'1 1 calc(33% - 4px)', num:'10' },
 ]
-const canvas = Object.fromEntries(NEEDS.map(n => [n.id, 'nourishment']))
-let openDropdown = null
 
-function canAccommodate(needId, newMode) {
-  const baselineArea = NEEDS.length * LAYERS['nourishment'].cols * LAYERS['nourishment'].height
-  const usedArea = NEEDS.reduce((s,n) => { const l = LAYERS[canvas[n.id]]; return s + l.cols * l.height }, 0)
-  const diff = (LAYERS[newMode].cols * LAYERS[newMode].height) - (LAYERS[canvas[needId]].cols * LAYERS[canvas[needId]].height)
-  return usedArea + diff <= baselineArea
-}
+const FINAL = [
+  { idx:0, mode:'play' },
+  { idx:1, mode:'appreciation' },
+  { idx:2, mode:'appreciation' },
+  { idx:3, mode:'nourishment' },
+  { idx:4, mode:'nourishment' },
+  { idx:5, mode:'nourishment' },
+  { idx:6, mode:'nourishment' },
+]
 
-function computeAnxiety() {
-  const baselineArea = NEEDS.length * LAYERS['nourishment'].cols * LAYERS['nourishment'].height
-  const usedArea = NEEDS.reduce((s,n) => { const l = LAYERS[canvas[n.id]]; return s + l.cols * l.height }, 0)
-  return Math.max(0, 1 - usedArea / baselineArea)
-}
-
-function computeProgress() {
-  const base = LAYERS['nourishment'].height
-  const total = NEEDS.reduce((s,n) => s + Math.min(LAYERS[canvas[n.id]].height / base, 1), 0)
-  return Math.round((total / NEEDS.length) * 100)
+function computeAnxietyH() {
+  const rowMax = {}
+  TILES.forEach(t => { rowMax[t.row] = Math.max(rowMax[t.row]||0, TILE_H[t.mode]) })
+  const tilesH = Object.values(rowMax).reduce((s,h)=>s+h,0) + (ROWS-1)*GAP
+  return Math.max(0, CANVAS_H - 16 - GAP - tilesH)
 }
 
 function render() {
-  const grid = document.getElementById('cw-grid')
+  const axH = computeAnxietyH()
+  document.getElementById('axb').style.height = axH + 'px'
+  document.getElementById('axt').style.display = axH > 30 ? 'block' : 'none'
+
+  const grid = document.getElementById('needs-grid')
   grid.innerHTML = ''
-  const anxPct = computeAnxiety()
-  if (anxPct > 0.01) {
-    const h = Math.round(anxPct * 300)
-    const anx = document.createElement('div')
-    anx.className = 'cw-anxiety'
-    anx.style.height = h + 'px'
-    if (anxPct > 0.15) {
-      anx.innerHTML = `${anxPct > 0.25 ? '<span class="cw-anx-eye">blank space</span>' : ''}<span class="cw-anx-txt">anxiety<br>grows here.</span>`
-    }
-    grid.appendChild(anx)
-  }
-  const sorted = [...NEEDS].sort((a,b) => {
-    const order = {play:0, appreciation:1, nourishment:2, survival:3}
-    return (order[canvas[a.id]] ?? 2) - (order[canvas[b.id]] ?? 2)
+  const rows = {}
+  TILES.forEach(t => { if(!rows[t.row]) rows[t.row]=[]; rows[t.row].push(t) })
+  Object.keys(rows).sort((a,b)=>a-b).forEach(r => {
+    const row = document.createElement('div')
+    row.className = 'needs-row-anim'
+    const rowH = Math.max(...rows[r].map(t=>TILE_H[t.mode]))
+    rows[r].forEach(n => {
+      const m = MODES[n.mode]
+      const fz = n.mode==='play'?20:n.mode==='appreciation'?16:n.mode==='nourishment'?14:12
+      const tile = document.createElement('div')
+      tile.className = 'need-tile'
+      tile.style.cssText = `flex:${n.flex};height:${rowH}px;border-color:${m.border};box-shadow:${m.shadow};`
+      tile.innerHTML = `<div class="tile-top"><span class="tile-num">${n.num}</span><span class="tile-pip" style="background:${m.pip}"></span></div><div><div class="tile-name" style="font-size:${fz}px">${n.name}</div><div class="tile-mode" style="color:${m.modeColor}">${n.mode}</div></div>`
+      row.appendChild(tile)
+    })
+    grid.appendChild(row)
   })
-  sorted.forEach(n => {
-    const mode = canvas[n.id]
-    const lyr = LAYERS[mode]
-    const isOpen = openDropdown === n.id
-    const nameFz = lyr.height >= 200 ? 22 : lyr.height >= 130 ? 17 : lyr.height >= 90 ? 13 : 10
-    const tile = document.createElement('div')
-    tile.className = 'cw-tile'
-    tile.style.cssText = `grid-column:span ${lyr.cols};height:${lyr.height}px;border-color:${lyr.border}`
-    tile.innerHTML = `
-      <div class="cw-tile-top">
-        <div class="cw-tile-piplabel">
-          <div class="cw-tile-pip" style="background:${lyr.pip}"></div>
-          <span class="cw-tile-mode" style="color:${lyr.text}">${mode}</span>
-        </div>
-        <div class="cw-dropdown-wrap">
-          <button class="cw-dropdown-btn" style="color:${lyr.text}" data-id="${n.id}">▾</button>
-          ${isOpen ? `<div class="cw-dropdown">${LAYER_ORDER.map(l => {
-            const ll = LAYERS[l]
-            const active = mode === l
-            return `<div class="cw-dropdown-item ${active ? 'cw-dropdown-active' : ''}" data-id="${n.id}" data-mode="${l}">
-              <div class="cw-dropdown-pip" style="background:${ll.pip}"></div>
-              <span style="color:${active ? ll.text : ''}">${l}</span>
-              ${active ? '<span class="cw-dropdown-check">✓</span>' : ''}
-            </div>`
-          }).join('')}</div>` : ''}
-        </div>
-      </div>
-      <div class="cw-tile-name" style="color:${lyr.text};font-size:${nameFz}px">${n.name}</div>`
-    grid.appendChild(tile)
-  })
-  const pct = computeProgress()
-  const color = pct >= 100 ? '#1B3627' : pct >= 70 ? '#1A1A18' : '#E13E15'
-  document.getElementById('prog-fill').style.width = pct + '%'
-  document.getElementById('prog-fill').style.background = color
-  document.getElementById('prog-pct').textContent = pct + '%'
-  document.getElementById('prog-pct').style.color = color
+
+  const w = { play:1.4, appreciation:1.15, nourishment:1.0, survival:0.25 }
+  const pct = Math.min(Math.round(TILES.reduce((s,t)=>s+w[t.mode],0)/TILES.length*100),100)
+  const color = pct>=90?'#1B3A2D':pct>=65?'#1a1a1a':'#D93B1C'
+  document.getElementById('pf').style.width = pct+'%'
+  document.getElementById('pf').style.background = color
+  const pp = document.getElementById('pp')
+  pp.textContent = pct+'%'
+  pp.style.color = color
 }
 
-document.getElementById('cw-grid').addEventListener('click', e => {
-  const btn = e.target.closest('.cw-dropdown-btn')
-  const item = e.target.closest('.cw-dropdown-item')
-  if (btn) {
-    e.stopPropagation()
-    const id = btn.dataset.id
-    openDropdown = openDropdown === id ? null : id
-    render()
-    return
-  }
-  if (item) {
-    e.stopPropagation()
-    const id = item.dataset.id
-    const newMode = item.dataset.mode
-    if (newMode !== canvas[id]) {
-      const isUpgrade = LAYER_ORDER.indexOf(newMode) > LAYER_ORDER.indexOf(canvas[id])
-      if (!isUpgrade || canAccommodate(id, newMode)) canvas[id] = newMode
-    }
-    openDropdown = null
-    render()
-    return
-  }
-  if (openDropdown) { openDropdown = null; render() }
-})
+let step=0, phase='building'
+function tick() {
+  if(phase==='building') {
+    if(step<FINAL.length) { TILES[FINAL[step].idx].mode=FINAL[step].mode; render(); step++; setTimeout(tick,step===1?1400:950) }
+    else { phase='holding'; setTimeout(tick,3200) }
+  } else if(phase==='holding') { phase='resetting'; tick() }
+  else { TILES.forEach(t=>{t.mode='survival'}); render(); step=0; phase='building'; setTimeout(tick,2000) }
+}
 
 render()
+setTimeout(tick,1000)
+
+// Sticky nav
+const sections = [
+  { id:'hero',   label:'01 — MASLOW' },
+  { id:'needs',  label:'02 — THE NEEDS' },
+  { id:'modes',  label:'03 — THE MODES' },
+  { id:'canvas', label:'04 — YOUR CANVAS' },
+  { id:'how',    label:'05 — HOW IT WORKS' },
+]
+function updateNav() {
+  const scrollY = window.scrollY + 80
+  let current = sections[0]
+  for(const s of sections) { const el=document.getElementById(s.id); if(el&&el.offsetTop<=scrollY) current=s }
+  document.getElementById('nav-section-label').textContent = current.label
+  document.getElementById('nav-needs').className  = 'snr-item'+(current.id==='needs'?' active':'')
+  document.getElementById('nav-modes').className  = 'snr-item'+(current.id==='modes'?' active':'')
+  document.getElementById('nav-canvas').className = 'snr-item'+(current.id==='canvas'?' active':'')
+}
+window.addEventListener('scroll', updateNav, { passive:true })
+updateNav()
 </script>
 </body>
 </html>
